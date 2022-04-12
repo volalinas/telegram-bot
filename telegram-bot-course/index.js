@@ -45,7 +45,7 @@ const start = async () => {
       }
 
       if (text === '/info') {
-        const user = await UserModel.findOne({ chatId })
+        user = UserModel.findOne({ chatId }) || UserModel.create({ chatId })
         return bot.sendMessage(chatId, `Тебя зовут ${msg.from.first_name}, в игре у тебя правильных ответов ${user.rightt}, неправильных ${user.wrong}`);
       }
       if (text === '/game') {
@@ -63,7 +63,7 @@ const start = async () => {
     if (data === '/again') {
       return startGame(chatId)
     }
-    const user = await UserModel.findOne({ chatId })
+    user = UserModel.findOne({ chatId }) || UserModel.create({ chatId })
 
     if (data == chats[chatId]) {
       user.rightt += 1;
