@@ -1,3 +1,4 @@
+
 module.exports = {
 
   gameOptions: {
@@ -16,9 +17,6 @@ module.exports = {
       inline_keyboard: [[{ text: 'Играть еще раз', callback_data: '/again' }]]
     }),
   }
-
-
-
 
 
 
